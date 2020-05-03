@@ -1,0 +1,56 @@
+Given a string, find the length of the longest substring without repeating characters.
+
+Example 1:
+
+Input: "abcabcbb"
+Output: 3 
+Explanation: The answer is "abc", with the length of 3. 
+Example 2:
+
+Input: "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let length = 0
+    let test=[]
+    const arr = s.split('')
+    for(i=0;i<arr.length;i++){
+        test=[]
+        test.push(arr[i]) 
+        for(j=i+1 ;j<arr.length;j++){
+           if(test.includes(arr[j])){
+                break;
+            }
+            else{
+                test.push(arr[j]) 
+            }
+           
+        }
+        if(length < test.length){
+                 length = test.length
+                }
+        
+       
+    }
+    
+    return length
+   
+    
+};
